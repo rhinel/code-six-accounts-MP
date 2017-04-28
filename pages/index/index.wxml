@@ -1,11 +1,39 @@
 
 <!--index.wxml-->
-<view class="container">
-  <view bindtap="bindViewTap" class="userinfo">
+<view class="container page index">
+  <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname">Hello {{userInfo.nickName}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd {{!loginVD.name ? 'weui-cell_warn' : ''}}">
+          <view class="weui-label">账号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input index-login-name" placeholder="Name" bindinput="bindKeyInputName" />
+        </view>
+        <view class="weui-cell__ft" wx:if="{{!loginVD.name}}">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd {{!loginVD.pwd ? 'weui-cell_warn' : ''}}">
+          <view class="weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input password class="weui-input index-login-pwd" placeholder="Pwd" bindinput="bindKeyInputPwd" />
+        </view>
+        <view class="weui-cell__ft" wx:if="{{!loginVD.pwd}}">
+          <icon type="warn" size="23" color="#E64340"></icon>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="button-sp-area">
+      <button class="weui-btn" type="primary" bindtap="bindViewTap">登陆</button>
+    </view>
   </view>
 </view>

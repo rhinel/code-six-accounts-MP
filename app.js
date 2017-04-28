@@ -1,30 +1,38 @@
 //app.js
 App({
-  onLaunch() {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  // data
+  globalData: {
+    userInfo: null
   },
+  // 生命周期
+  onLaunch(options) {
+    console.log(options)
+  },
+  // 方法定义
   getUserInfo(cb) {
-    var that = this
+    // 获取用户信息
+    let that = this
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
-      //调用登录接口
+      // 调用登录接口
       wx.login({
         success() {
           wx.getUserInfo({
             success(res) {
               that.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
+            },
+            fail(res) {
+              that.globalData.userInfo = {
+                nickName: 'Friend',
+                avatarUrl: '/assets/photo.jpg'
+              }
+              typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
         }
       })
     }
-  },
-  globalData: {
-    userInfo: null
   }
 })
