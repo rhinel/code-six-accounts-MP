@@ -1,0 +1,36 @@
+{
+  "debug": true,
+  "pages": [
+    "pages/index/index",
+    "pages/history/history",
+    "pages/types/types"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "code-six-accounts",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/history/history",
+        "text": "记录",
+        "iconPath": "assets/list.png",
+        "selectedIconPath": "assets/list-show.png"
+      },
+      {
+        "pagePath": "pages/types/types",
+        "text": "类型",
+        "iconPath": "assets/type.png",
+        "selectedIconPath": "assets/type-show.png"
+      }
+    ]
+  }
+}
