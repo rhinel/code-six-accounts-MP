@@ -1,5 +1,24 @@
 
 <!--history.wxml-->
 <view class="history">
-  history
+  <view class="page__hd">
+    <view class="page__title">记录</view>
+    <view class="page__desc">添加记录，分类记账。</view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <view class="main-calc">00000元</view>
+      <view class="main-tip">总账余额</view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item" bindtap="bindAddRecord">
+      <image class="img" src="/assets/plus.png"></image>
+    </view>
+  </view>
+  <view class="loadmore">
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+  </view>
 </view>

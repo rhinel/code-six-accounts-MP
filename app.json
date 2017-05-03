@@ -3,6 +3,7 @@
   "pages": [
     "pages/index/index",
     "pages/history/history",
+    "pages/record-det/record-det",
     "pages/types/types",
     "pages/types-det/types-det"
   ],

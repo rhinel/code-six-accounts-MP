@@ -10,6 +10,11 @@
       <image class="img" src="/assets/plus.png"></image>
     </view>
   </view>
+  <view class="loadmore">
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+  </view>
   <view class="page__bd page__bd_spacing" wx:for="{{list}}" wx:key="typeId">
     <view class="kind-list__item" bindtap="bindTypeDet" data-typeid="{{item.typeId}}">
       <view class="name">{{item.name}}</view>
@@ -23,7 +28,7 @@
           <view class="tip">流出</view>
         </view>
         <view class="r">
-          <view class="bigyuan">{{item.increased - item.reduce}}元</view>
+          <view class="bigyuan">{{item.calc}}元</view>
         </view>
       </view>
       <view class="tip">{{item.updateTime}}</view>

@@ -6,6 +6,7 @@
 
 .types-det .page__bd {
   margin: 10px 0;
+  padding-bottom: 5px;
 }
 
 .types-det .page__bd:first-child {
@@ -43,14 +44,19 @@
   border-radius: 2px;
 }
 
+.types-det .loadmore .weui-loadmore_line {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.types-det .weui-loadmore__tips_in-line {
+  background-color: #f8f8f8;
+}
+
 .types-det .img {
   height: 30px;
   width: 30px;
   vertical-align: top;
-}
-
-.types-det .page__bd:not(:last-child) {
-  padding-bottom: 0;
 }
 
 .types-det .item_flex {

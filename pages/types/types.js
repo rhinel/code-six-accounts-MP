@@ -75,6 +75,7 @@ Page({
             })
         })
     },
+    // actions
     bindAddType(e) {
         wx.navigateTo({
             url: '/pages/types-det/types-det'
@@ -85,6 +86,10 @@ Page({
             url: '/pages/types-det/types-det?typeId=' + e.currentTarget.dataset.typeid
         })
     },
+    fixNum(n) {
+        return Math.round(n * 100) / 100
+    },
+    // get data
     bindGetList(resolve, start) {
         let that = this
         let page = start ? 0 : that.data.page
@@ -100,12 +105,13 @@ Page({
         }, (res) => {
             res.data.data.forEach((i) => {
                 i.updateTime = formatTime(new Date(i.updateTime))
+                i.calc = that.fixNum(i.increased - i.reduce)
             })
             that.setData({
                 list: page != 0 ? that.data.list.concat(res.data.data) : res.data.data,
                 loaded: true,
                 page: res.data.data.length > 0 ? page + 1 : page,
-                end: res.data.data.length == 0
+                end: res.data.data.length == 0 && !!page
             })
             resolve && resolve()
         }, (res) => {

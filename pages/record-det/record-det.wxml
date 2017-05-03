@@ -1,0 +1,64 @@
+
+<!--record-det.wxml-->
+<view class="record-det">
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <picker mode="date" value="{{det.date}}" bindchange="bindTypeDateChange" disabled="{{!edit}}">
+        <view class="weui-select weui-select_in-select-after">{{det.date}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <picker value="{{typesIndex}}" range="{{types}}" range-key="name" bindchange="bindTypePickerChange" disabled="{{!edit}}">
+        <view class="weui-select weui-select_in-select-after">
+          {{types[typesIndex] ? types[typesIndex].name : '请选择'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <view class="numwrap">
+        <view class="title">流入</view>
+        <view class="value">
+          <input type="digit" placeholder="number" value="{{det.increased}}" bindinput="bindinputIncreased" disabled="{{!edit}}" />
+        </view>
+        <view class="title">元</view>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <view class="numwrap">
+        <view class="title">流出</view>
+        <view class="value">
+          <input type="digit" placeholder="number" value="{{det.reduce}}" bindinput="bindinputReduce" disabled="{{!edit}}" />
+        </view>
+        <view class="title">元</view>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item">
+      <view class="numwrap">
+        <view class="title">小计</view>
+        <view class="value">
+          {{det.calc}}
+        </view>
+        <view class="title">元</view>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing btn-wrap">
+    <view class="kind-list__item" bindtap="bindEdit" wx:if="{{!edit}}">
+      <image class="img" src="/assets/edit.png"></image>
+    </view>
+    <view class="kind-list__item" bindtap="bindUp" hidden="{{!edit}}">
+      <image class="img" src="/assets/save.png"></image>
+    </view>
+    <view class="kind-list__item" bindtap="bindDel" hidden="{{!edit || !det.recordId}}">
+      <image class="img" src="/assets/del.png"></image>
+    </view>
+  </view>
+</view>

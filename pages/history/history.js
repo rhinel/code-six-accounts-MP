@@ -35,5 +35,10 @@ Page({
     onReachBottom() {
         // 页面上拉触底事件的处理函数
 
+    },
+    bindAddRecord(e) {
+        wx.navigateTo({
+            url: '/pages/record-det/record-det'
+        })
     }
 })

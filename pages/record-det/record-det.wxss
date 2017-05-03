@@ -1,0 +1,60 @@
+/*record-det.wxss*/
+
+.record-det .page__bd:first-child {
+  padding-top: 15px;
+}
+
+.record-det .page__bd {
+  padding-bottom: 5px;
+}
+
+.record-det .kind-list__item {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.record-det .kind-list__item:first-child {
+  margin-top: 0;
+  padding: 15px;
+  text-align: right;
+}
+
+.record-det .weui-select {
+  height: inherit;
+  min-height: inherit;
+  line-height: inherit;
+}
+
+.record-det .numwrap {
+  display: flex;
+  padding: 0 10px;
+}
+
+.record-det .numwrap .title {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.record-det .numwrap .value {
+  width: 100%;
+  padding-right: 10px;
+}
+
+.record-det .btn-wrap {
+  display: flex;
+}
+
+.record-det .btn-wrap .kind-list__item {
+  flex: 1;
+  text-align: center;
+  margin-top: 0;
+  padding: 15px;
+}
+
+.record-det .img {
+  height: 30px;
+  width: 30px;
+  vertical-align: top;
+}

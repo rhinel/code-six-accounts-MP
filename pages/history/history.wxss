@@ -1,0 +1,42 @@
+/*history.wxss*/
+
+.history .page__bd {
+  padding-bottom: 5px;
+}
+
+.history .kind-list__item {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.history .kind-list__item:first-child {
+  margin-top: 0;
+  padding: 15px;
+  text-align: center;
+}
+
+.history .loadmore .weui-loadmore_line {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.history .weui-loadmore__tips_in-line {
+  background-color: #f8f8f8;
+}
+
+.history .img {
+  height: 30px;
+  width: 30px;
+  vertical-align: top;
+}
+
+.history .main-calc {
+  font-size: 20px;
+}
+
+.history .main-tip {
+  font-size: 11px;
+  color: #999;
+}

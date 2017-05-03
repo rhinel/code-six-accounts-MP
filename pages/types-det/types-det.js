@@ -1,5 +1,6 @@
 //types-det.js
 let ajax = require('../../assets/utils/request.js')
+let formatTime = require('../../assets/utils/util.js').formatTime
 Page({
     data: {
         editting: true,
@@ -10,7 +11,8 @@ Page({
             detail: '',
             increased: 0,
             reduce: 0,
-            calc: 1
+            calc: 1,
+            theCalc: 0
         },
         loaded: false,
         list: [],
@@ -82,11 +84,7 @@ Page({
             })
         })
     },
-    bindEdit() {
-        this.setData({
-            'editting': true
-        })
-    },
+    // data
     bindinputName(e) {
         this.setData({
             'det.name': e ? e.detail.value : ''
@@ -104,6 +102,12 @@ Page({
         }
         that.setData({
             'det.calc': 1 - that.data.det.calc
+        })
+    },
+    // actions
+    bindEdit() {
+        this.setData({
+            'editting': true
         })
     },
     bindSave() {
@@ -148,7 +152,7 @@ Page({
                 })
                 that.setData({
                     'editting': false,
-                    'det.typeId': res.data.data.insertId
+                    'det.typeId': that.data.det.typeId || res.data.data.insertId
                 })
             }, (res) => {
                 wx.showToast({
@@ -164,13 +168,19 @@ Page({
             })
         }
     },
+    fixNum(n) {
+        return Math.round(n * 100) / 100
+    },
+    // get data
     bindGetDet(resolve) {
         let that = this
         ajax('/inner/types/one', {
             typeId: that.data.det.typeId
         }, (res) => {
+            let data = res.data.data[0] || that.data.det
+            data.theCalc = that.fixNum(data.increased - data.reduce)
             that.setData({
-                det: res.data.data[0] || that.data.det
+                det: data
             })
             resolve && resolve()
         }, (res) => {
@@ -198,6 +208,7 @@ Page({
         }, (res) => {
             res.data.data.forEach((i) => {
                 i.updateTime = formatTime(new Date(i.updateTime))
+                i.calc = that.fixNum(i.increased - i.reduce)
             })
             that.setData({
                 list: page != 0 ? that.data.list.concat(res.data.data) : res.data.data,
@@ -207,6 +218,9 @@ Page({
             })
             resolve && resolve()
         }, (res) => {
+            that.setData({
+                loaded: true
+            })
             wx.showToast({
                 title: String(res.data.msg),
                 image: '../../assets/error.png',
