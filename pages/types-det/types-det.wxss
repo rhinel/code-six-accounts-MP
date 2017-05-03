@@ -26,6 +26,16 @@
   z-index: 5;
 }
 
+.types-det .edit-button2 {
+  position: absolute;
+  bottom: 8px;
+  right: 23px;
+  padding: 5px;
+  background-color: #eee;
+  border-radius: 50%;
+  z-index: 5;
+}
+
 .types-det .kind-list__item {
   padding: 15px;
   text-align: left;

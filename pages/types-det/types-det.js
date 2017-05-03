@@ -9,7 +9,8 @@ Page({
             name: '',
             detail: '',
             increased: 0,
-            reduce: 0
+            reduce: 0,
+            calc: 1
         },
         loaded: false,
         list: [],
@@ -94,6 +95,15 @@ Page({
     bindinputDetail(e) {
         this.setData({
             'det.detail': e ? e.detail.value : ''
+        })
+    },
+    bindChangeCalcType() {
+        let that = this
+        if (!that.data.editting) {
+            return false
+        }
+        that.setData({
+            'det.calc': 1 - that.data.det.calc
         })
     },
     bindSave() {

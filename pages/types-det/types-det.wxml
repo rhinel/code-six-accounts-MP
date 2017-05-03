@@ -14,6 +14,10 @@
     <view class="edit-button" hidden="{{!editting}}" bindtap="bindSave">
       <image class="img" src="/assets/save.png"></image>
     </view>
+    <view class="edit-button2" bindtap="bindChangeCalcType">
+      <image class="img" src="/assets/calc.png" hidden="{{det.calc == 0}}"></image>
+      <image class="img" src="/assets/calc-not.png" hidden="{{det.calc == 1}}"></image>
+    </view>
   </view>
   <view class="page__bd page__bd_spacing" hidden="{{editting}}">
     <view class="kind-list__item">
