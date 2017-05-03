@@ -1,5 +1,32 @@
 
 <!--types.wxml-->
 <view class="types">
-  types
+  <view class="page__hd">
+    <view class="page__title">账目</view>
+    <view class="page__desc">添加账目类型，用于记账的账目类型和分类统计。</view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list__item" bindtap="bindAddType">
+      <image class="img" src="/assets/plus.png"></image>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing" wx:for="{{list}}" wx:key="typeId">
+    <view class="kind-list__item" bindtap="bindTypeDet" data-typeid="{{item.typeId}}">
+      <view class="name">{{item.name}}</view>
+      <view class="bottom">
+        <view class="r">
+          <view class="yuan">{{item.increased}}元</view>
+          <view class="tip">流入</view>
+        </view>
+        <view class="r">
+          <view class="yuan">{{item.reduce}}元</view>
+          <view class="tip">流出</view>
+        </view>
+        <view class="r">
+          <view class="bigyuan">{{item.increased - item.reduce}}元</view>
+        </view>
+      </view>
+      <view class="tip">{{item.updateTime}}</view>
+    </view>
+  </view>
 </view>

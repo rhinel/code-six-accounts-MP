@@ -1,0 +1,38 @@
+
+<!--types-det.wxml-->
+<view class="types-det">
+  <view class="page__bd page__bd_spacing top-wrap">
+    <view class="kind-list__item">
+      <input placeholder="类型名称" value="{{det.name}}" bindinput="bindinputName" disabled="{{!editting}}" />
+    </view>
+    <view class="kind-list__item">
+      <input placeholder="说明" value="{{det.detail}}" bindinput="bindinputDetail" disabled="{{!editting}}" />
+    </view>
+    <view class="edit-button" hidden="{{editting}}" bindtap="bindEdit">
+      <image class="img" src="/assets/edit.png"></image>
+    </view>
+    <view class="edit-button" hidden="{{!editting}}" bindtap="bindSave">
+      <image class="img" src="/assets/save.png"></image>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing" hidden="{{editting}}">
+    <view class="kind-list__item">
+      <view class="item_flex">
+        <view class="flex1">
+          <view class="num">{{det.increased}}元</view>
+          <view class="txt">流入</view>
+        </view>
+        <view class="flex1">
+          <view class="num">{{det.reduce}}元</view>
+          <view class="txt">流出</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing" hidden="{{editting}}">
+    <view class="kind-list__item">
+      <view class="num">{{det.increased - det.reduce}}元</view>
+      <view class="txt">结余</view>
+    </view>
+  </view>
+</view>

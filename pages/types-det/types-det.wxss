@@ -1,0 +1,63 @@
+/*types-det.wxss*/
+
+.types-det {
+  overflow: hidden;
+}
+
+.types-det .page__bd {
+  margin: 10px 0;
+}
+
+.types-det .page__bd:first-child {
+  margin-top: 15px;
+}
+
+.types-det .top-wrap {
+  position: relative;
+}
+
+.types-det .edit-button {
+  position: absolute;
+  top: 8px;
+  right: 23px;
+  padding: 5px;
+  background-color: #eee;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.types-det .kind-list__item {
+  padding: 15px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.types-det .img {
+  height: 30px;
+  width: 30px;
+  vertical-align: top;
+}
+
+.types-det .page__bd:not(:last-child) {
+  padding-bottom: 0;
+}
+
+.types-det .item_flex {
+  display: flex;
+  text-align: center;
+}
+
+.types-det .flex1 {
+  flex: 1;
+}
+
+.types-det .num {
+  font-size: 20px;
+  text-align: center;
+}
+
+.types-det .txt {
+  font-size: 11px;
+  text-align: center;
+}

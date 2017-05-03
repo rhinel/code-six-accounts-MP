@@ -1,0 +1,55 @@
+/*types.wxss*/
+
+.types .page__bd {
+  padding-bottom: 5px;
+}
+
+.types.page__bd:last-child {
+  padding-bottom: 40px;
+}
+
+.types .kind-list__item {
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.types .kind-list__item:first-child {
+  margin-top: 0;
+  padding: 15px;
+  text-align: center;
+}
+
+.types .img {
+  height: 30px;
+  width: 30px;
+  vertical-align: top;
+}
+
+.types .bottom {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.types .name, .types .r {
+  flex: 1;
+}
+
+.types .name {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.types .bigyuan {
+  font-size: 20px;
+}
+
+.types .yuan {
+  font-size: 13px;
+}
+
+.types .tip {
+  font-size: 11px;
+  color: #999;
+}

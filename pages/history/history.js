@@ -1,11 +1,16 @@
 //history.js
+let ajax = require('../../assets/utils/request.js')
 Page({
     data: {
 
     },
     onLoad(options) {
         // 生命周期函数--监听页面加载
-
+        ajax('/inner/auth/check', {}, (res) => { }, (res) => {
+            wx.reLaunch({
+                url: '/pages/index/index'
+            })
+        })
     },
     onReady() {
         // 生命周期函数--监听页面初次渲染完成

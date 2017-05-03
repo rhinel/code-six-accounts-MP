@@ -3,7 +3,8 @@
   "pages": [
     "pages/index/index",
     "pages/history/history",
-    "pages/types/types"
+    "pages/types/types",
+    "pages/types-det/types-det"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -27,7 +28,7 @@
       },
       {
         "pagePath": "pages/types/types",
-        "text": "类型",
+        "text": "账目",
         "iconPath": "assets/type.png",
         "selectedIconPath": "assets/type-show.png"
       }
