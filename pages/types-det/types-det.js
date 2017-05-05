@@ -98,7 +98,7 @@ Page({
     },
     bindChangeCalcType() {
         let that = this
-        if (!that.data.editting) {
+        if (!that.data.editting || that.data.det.typeId) {
             return false
         }
         that.setData({
