@@ -41,7 +41,7 @@ Page({
             let that = this
             if (actions.length == 2) {
                 let typesIndex = 0
-                that.data.types.forEach((i, index)=>{
+                that.data.types.forEach((i, index) => {
                     i.typeId == that.data.det.typeId && (typesIndex = index)
                 })
                 that.setData({
@@ -204,7 +204,49 @@ Page({
         }
     },
     bindDel() {
-
+        let that = this
+        if (!that.data.det.date || !that.data.det.typeId) {
+            wx.showToast({
+                title: '参数不完整',
+                image: '../../assets/error.png',
+                icon: 'loading',
+                duration: 2000
+            })
+        } else {
+            if (that.data.updatting) {
+                return false
+            }
+            that.setData({
+                'updatting': true
+            })
+            wx.showToast({
+                title: title,
+                icon: 'loading',
+                mask: true,
+                duration: 2000000
+            })
+            ajax('/inner/record/del', that.data.det, (res) => {
+                wx.showToast({
+                    title: ok,
+                    icon: 'success',
+                    duration: 1000
+                })
+                setTimeout(() => {
+                    wx.navigateBack()
+                }, 1000)
+            }, (res) => {
+                wx.showToast({
+                    title: String(res.data.msg),
+                    image: '../../assets/error.png',
+                    icon: 'loading',
+                    duration: 2000
+                })
+            }, (res) => {
+                that.setData({
+                    'updatting': false
+                })
+            })
+        }
     },
     fixNum(n) {
         return Math.round(n * 100) / 100
