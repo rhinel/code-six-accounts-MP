@@ -1,5 +1,5 @@
 // let host = 'https://localhost/api'
-let host = 'https://csa.fantasy-nations.net/api'
+let host = 'https://web.rhinel.xyz/api'
 
 let request = (path, data, callscue, callerr, callcomp) => {
     let token = wx.getStorageSync('token')

@@ -220,7 +220,7 @@ Page({
                 'updatting': true
             })
             wx.showToast({
-                title: title,
+                title: '删除中',
                 icon: 'loading',
                 mask: true,
                 duration: 2000000
