@@ -17,7 +17,9 @@
   </view>
   <view class="page__bd page__bd_spacing" wx:for="{{list}}" wx:key="typeId">
     <view class="kind-list__item" bindtap="bindTypeDet" data-typeid="{{item.typeId}}">
-      <view class="name">{{item.name}}</view>
+      <view class="name">{{item.name}}
+        <image class="img" src="/assets/calc.png" wx:if="{{item.calc == 1}}"></image>
+      </view>
       <view class="bottom">
         <view class="r">
           <view class="yuan">{{item.increased}}元</view>
@@ -28,7 +30,7 @@
           <view class="tip">流出</view>
         </view>
         <view class="r">
-          <view class="bigyuan">{{item.calc}}元</view>
+          <view class="bigyuan">{{item.theCalc}}元</view>
         </view>
       </view>
       <view class="tip">{{item.updateTime}}</view>

@@ -19,7 +19,7 @@
 
 .types .loadmore .weui-loadmore_line {
   margin-top: 10px;
-  margin-bottom: 0px;
+  margin-bottom: calc(25px - 1.6em);
 }
 
 .types .weui-loadmore__tips_in-line {
@@ -44,6 +44,16 @@
 .types .name {
   font-size: 19px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.types .name .img {
+  height: 20px;
+  width: 20px;
+  float: right;
+  position: absolute;
+  top: 5px;
+  right: 0;
 }
 
 .types .bigyuan {

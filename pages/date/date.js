@@ -1,8 +1,14 @@
-//history.js
+//date.js
 let ajax = require('../../assets/utils/request.js')
 let formatDate = require('../../assets/utils/util.js').formatDate
 Page({
     data: {
+        det: {
+            date: '',
+            increased: 0,
+            reduce: 0,
+            calc: 0
+        },
         loaded: false,
         list: [],
         page: 0,
@@ -12,6 +18,9 @@ Page({
     },
     onLoad(options) {
         // 生命周期函数--监听页面加载
+        this.setData({
+            'det.date': options.date
+        })
         wx.showToast({
             title: '加载中',
             icon: 'loading',
@@ -19,7 +28,7 @@ Page({
         })
         Promise.all([
             new Promise((resolve) => {
-                this.bindGetDateList(resolve, true)
+                this.bindGetDateDetList(resolve, true)
             }),
             new Promise((resolve) => {
                 this.bindGetCount(resolve)
@@ -53,7 +62,7 @@ Page({
         // 页面相关事件处理函数--监听用户下拉动作
         Promise.all([
             new Promise((resolve) => {
-                this.bindGetDateList(resolve, true)
+                this.bindGetDateDetList(resolve, true)
             }),
             new Promise((resolve) => {
                 this.bindGetCount(resolve)
@@ -70,7 +79,7 @@ Page({
         // 页面上拉触底事件的处理函数
         Promise.all([
             new Promise((resolve) => {
-                this.bindGetDateList(resolve)
+                this.bindGetDateDetList(resolve)
             })
         ]).then((data) => {
             wx.showToast({
@@ -81,21 +90,16 @@ Page({
         })
     },
     // actions
-    bindAddRecord(e) {
+    bindRecordDet(e) {
         wx.navigateTo({
-            url: '/pages/record-det/record-det'
-        })
-    },
-    bindDateDet(e) {
-        wx.navigateTo({
-            url: '/pages/date/date?date=' + e.currentTarget.dataset.date
+            url: '/pages/record-det/record-det?recordId=' + e.currentTarget.dataset.recordid
         })
     },
     fixNum(n) {
         return Math.round(n * 100) / 100
     },
     // getData
-    bindGetDateList(resolve, start) {
+    bindGetDateDetList(resolve, start) {
         let that = this
         let page = start ? 0 : that.data.page
         if (!that.data.loaded && !start || !start && that.data.end) {
@@ -104,13 +108,13 @@ Page({
         that.setData({
             loaded: false
         })
-        ajax('/inner/date/list', {
+        ajax('/inner/date/dateDetList', {
+            date: that.data.det.date,
             page: page + 1,
             size: that.data.size
         }, (res) => {
             res.data.data.forEach((i) => {
-                i.date = formatDate(new Date(i.date))
-                i.calc = that.fixNum(i.increased - i.reduce)
+                i.rCalc = that.fixNum(i.rIncreased - i.rReduce)
             })
             that.setData({
                 list: page != 0 ? that.data.list.concat(res.data.data) : res.data.data,
@@ -133,9 +137,14 @@ Page({
     },
     bindGetCount(resolve) {
         let that = this
-        ajax('/inner/user/count', {}, (res) => {
+        ajax('/inner/date/one', {
+            date: that.data.det.date
+        }, (res) => {
+            let data = res.data.data[0] || that.data.det
+            data.date = formatDate(new Date(data.date))
+            data.calc = that.fixNum(data.increased - data.reduce)
             that.setData({
-                count: res.data.data[0] && res.data.data[0].count
+                det: data
             })
             resolve && resolve()
         }, (res) => {

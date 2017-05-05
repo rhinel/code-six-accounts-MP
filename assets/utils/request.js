@@ -11,7 +11,15 @@ let request = (path, data, callscue, callerr, callcomp) => {
         data: data,
         method: 'POST',
         success(res) {
-            if (res.data.code == '2001' && path.indexOf('/auth') < 0) {
+            if (res.statusCode != '200') {
+                // 接口代码错误
+                wx.showToast({
+                    title: String(res.statusCode),
+                    image: '../../assets/error.png',
+                    icon: 'loading',
+                    duration: 2000
+                })
+            } else if (res.data.code == '2001' && path.indexOf('/auth') < 0) {
                 // 非auth接口，登陆失效或者未登陆，先报错后，清除旧登陆信息，跳转
                 wx.removeStorageSync('token')
                 wx.redirectTo({

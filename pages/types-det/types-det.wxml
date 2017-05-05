@@ -44,4 +44,22 @@
       <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
     </view>
   </view>
+  <view class="page__bd page__bd_spacing" hidden="{{editting}}" wx:for="{{list}}" wx:key="recordId">
+    <view class="kind-list__item" data-recordId="{{item.recordId}}" bindtap="bindRecordDet">
+      <view class="date">{{item.date}}</view>
+      <view class="item_flex">
+        <view class="flex1">
+          <view class="num">{{item.increased}}元</view>
+          <view class="txt">流入</view>
+        </view>
+        <view class="flex1">
+          <view class="num">{{item.reduce}}元</view>
+          <view class="txt">流出</view>
+        </view>
+        <view class="flex1">
+          <view class="num">{{item.calc}}元</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

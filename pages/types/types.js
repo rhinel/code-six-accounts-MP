@@ -93,7 +93,7 @@ Page({
     bindGetList(resolve, start) {
         let that = this
         let page = start ? 0 : that.data.page
-        if (!that.data.loaded && !start || that.data.end) {
+        if (!that.data.loaded && !start || !start && that.data.end) {
             return false
         }
         that.setData({
@@ -105,7 +105,7 @@ Page({
         }, (res) => {
             res.data.data.forEach((i) => {
                 i.updateTime = formatTime(new Date(i.updateTime))
-                i.calc = that.fixNum(i.increased - i.reduce)
+                i.theCalc = that.fixNum(i.increased - i.reduce)
             })
             that.setData({
                 list: page != 0 ? that.data.list.concat(res.data.data) : res.data.data,

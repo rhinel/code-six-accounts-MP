@@ -38,6 +38,16 @@ Page({
             })
         )
         Promise.all(actions).then((data) => {
+            let that = this
+            if (actions.length == 2) {
+                let typesIndex = 0
+                that.data.types.forEach((i, index)=>{
+                    i.typeId == that.data.det.typeId && (typesIndex = index)
+                })
+                that.setData({
+                    'typesIndex': typesIndex
+                })
+            }
             wx.hideToast()
         })
         ajax('/inner/auth/check', {}, (res) => { }, (res) => {
@@ -68,7 +78,7 @@ Page({
         ajax('/inner/types/minlist', {}, (res) => {
             that.setData({
                 types: res.data.data,
-                'det.typeId': that.data.det.typeId ? that.data.det.typeId : res.data.data[0] && res.data.data[0].typeId
+                'det.typeId': res.data.data[0] ? res.data.data[0].typeId : ''
             })
             resolve && resolve()
         }, (res) => {
@@ -81,7 +91,25 @@ Page({
         })
     },
     bindGetDet(resolve) {
-
+        let that = this
+        ajax('/inner/record/one', {
+            recordId: that.data.det.recordId
+        }, (res) => {
+            let record = res.data.data[0] || that.data.det
+            record.date = formatDate(new Date(record.date))
+            record.calc = that.fixNum(record.increased - record.reduce)
+            that.setData({
+                det: record
+            })
+            resolve && resolve()
+        }, (res) => {
+            wx.showToast({
+                title: String(res.data.msg),
+                image: '../../assets/error.png',
+                icon: 'loading',
+                duration: 2000
+            })
+        })
     },
     // data
     bindTypeDateChange(e) {

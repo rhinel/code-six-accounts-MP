@@ -46,7 +46,7 @@
 
 .types-det .loadmore .weui-loadmore_line {
   margin-top: 20px;
-  margin-bottom: 0px;
+  margin-bottom: calc(15px - 1.6em);
 }
 
 .types-det .weui-loadmore__tips_in-line {

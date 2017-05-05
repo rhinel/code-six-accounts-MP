@@ -1,0 +1,50 @@
+/*date.wxss*/
+
+.date .page__bd {
+  margin-bottom: 15px;
+  padding-bottom: 0;
+}
+
+.date .kind-list__item {
+  padding: 15px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.date .loadmore .weui-loadmore_line {
+  margin-top: 25px;
+  margin-bottom: calc(25px - 1.6em);
+}
+
+.date .weui-loadmore__tips_in-line {
+  background-color: #f8f8f8;
+}
+
+.date .item_flex {
+  display: flex;
+  text-align: center;
+}
+
+.date .flex1 {
+  flex: 1;
+}
+
+.date .num {
+  font-size: 20px;
+  text-align: center;
+}
+
+.date .txt {
+  font-size: 11px;
+  text-align: center;
+}
+
+.date .img {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  right: -5px;
+}
