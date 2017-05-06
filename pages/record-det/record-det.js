@@ -1,4 +1,5 @@
 //record-det.js
+let app = getApp()
 let ajax = require('../../assets/utils/request.js')
 let formatDate = require('../../assets/utils/util.js').formatDate
 Page({
@@ -95,7 +96,19 @@ Page({
         ajax('/inner/record/one', {
             recordId: that.data.det.recordId
         }, (res) => {
-            let record = res.data.data[0] || that.data.det
+            if (!res.data.data[0]) {
+                wx.showToast({
+                    title: '记录不存在',
+                    image: '../../assets/error.png',
+                    icon: 'loading',
+                    duration: 1000
+                })
+                setTimeout(() => {
+                    wx.navigateBack()
+                }, 1000)
+                return false
+            }
+            let record = res.data.data[0]
             record.date = formatDate(new Date(record.date))
             record.calc = that.fixNum(record.increased - record.reduce)
             that.setData({
@@ -189,6 +202,7 @@ Page({
                     'edit': false,
                     'det.recordId': that.data.det.recordId || res.data.data.insertId
                 })
+                app.globalData.reload = getCurrentPages().length
             }, (res) => {
                 wx.showToast({
                     title: String(res.data.msg),
@@ -226,8 +240,9 @@ Page({
                 duration: 2000000
             })
             ajax('/inner/record/del', that.data.det, (res) => {
+                app.globalData.reload = getCurrentPages().length
                 wx.showToast({
-                    title: ok,
+                    title: '删除成功',
                     icon: 'success',
                     duration: 1000
                 })

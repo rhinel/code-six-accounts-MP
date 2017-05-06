@@ -1,4 +1,5 @@
 //types.js
+let app = getApp()
 let ajax = require('../../assets/utils/request.js')
 let formatTime = require('../../assets/utils/util.js').formatTime
 Page({
@@ -35,7 +36,23 @@ Page({
     },
     onShow() {
         // 生命周期函数--监听页面显示
-
+        let that = this
+        if (app.globalData.reload) {
+            wx.showToast({
+                title: '加载中',
+                icon: 'loading',
+                duration: 2000000
+            })
+            // 生命周期函数--监听页面加载
+            Promise.all([
+                new Promise((resolve) => {
+                    this.bindGetList(resolve, true)
+                })
+            ]).then((data) => {
+                wx.hideToast()
+                app.globalData.reload --
+            })
+        }
     },
     onHide() {
         // 生命周期函数--监听页面隐藏

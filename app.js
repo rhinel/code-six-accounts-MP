@@ -2,7 +2,8 @@
 App({
   // data
   globalData: {
-    userInfo: null
+    userInfo: null,
+    reload: false
   },
   // 生命周期
   onLaunch(options) {

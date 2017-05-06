@@ -1,4 +1,5 @@
 //date.js
+let app = getApp()
 let ajax = require('../../assets/utils/request.js')
 let formatDate = require('../../assets/utils/util.js').formatDate
 Page({
@@ -48,7 +49,25 @@ Page({
     },
     onShow() {
         // 生命周期函数--监听页面显示
-
+        let that = this
+        if (app.globalData.reload) {
+            wx.showToast({
+                title: '加载中',
+                icon: 'loading',
+                duration: 2000000
+            })
+            Promise.all([
+                new Promise((resolve) => {
+                    this.bindGetDateDetList(resolve, true)
+                }),
+                new Promise((resolve) => {
+                    this.bindGetCount(resolve)
+                })
+            ]).then((data) => {
+                wx.hideToast()
+                app.globalData.reload --
+            })
+        }
     },
     onHide() {
         // 生命周期函数--监听页面隐藏
