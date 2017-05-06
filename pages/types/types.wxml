@@ -2,8 +2,7 @@
 <!--types.wxml-->
 <view class="types">
   <view class="page__hd">
-    <view class="page__title">账目</view>
-    <view class="page__desc">添加账目类型，用于记账的账目类型和分类统计。</view>
+    <view class="page__desc">用于记账的账目类型和分类统计。</view>
   </view>
   <view class="page__bd page__bd_spacing">
     <view class="kind-list__item" bindtap="bindAddType">

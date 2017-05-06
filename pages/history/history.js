@@ -59,6 +59,7 @@ Page({
                 this.bindGetCount(resolve)
             })
         ]).then((data) => {
+            wx.stopPullDownRefresh()
             wx.showToast({
                 title: '获取成功',
                 icon: 'success',

@@ -2,6 +2,31 @@
 
 .index {
   padding-top: 100rpx;
+  min-height: 100vh;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.index .wrap {
+  margin: 0 auto;
+  width: 80vw;
+  padding-top: 20px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 2px 2px 8px 0 rgba(162, 162, 162, 0.50);
+  border-radius: 15px;
+}
+
+.index .index-login-name, .index .index-login-pwd {
+  text-align: center;
+}
+
+.index .weui-cell_input {
+  position: relative;
+}
+
+.index .weui-cell__ft {
+  position: absolute;
+  right: 10px;
 }
 
 .userinfo {
@@ -12,8 +37,8 @@
 }
 
 .userinfo-avatar {
-  width: 400rpx;
-  height: 400rpx;
+  width: 300rpx;
+  height: 300rpx;
   margin: 20rpx;
   border-radius: 50%;
 }

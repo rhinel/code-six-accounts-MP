@@ -29,7 +29,7 @@
 
 .types-det .edit-button2 {
   position: absolute;
-  bottom: 8px;
+  bottom: 13px;
   right: 23px;
   padding: 5px;
   background-color: #eee;

@@ -2,8 +2,7 @@
 <!--history.wxml-->
 <view class="history">
   <view class="page__hd">
-    <view class="page__title">记录</view>
-    <view class="page__desc">添加记录，分类记账。</view>
+    <view class="page__desc">认真记账，坚持每一天。</view>
   </view>
   <view class="page__bd page__bd_spacing">
     <view class="kind-list__item">
