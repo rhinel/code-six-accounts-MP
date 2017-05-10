@@ -1,4 +1,3 @@
-
 <!--record-det.wxml-->
 <view class="record-det">
   <view class="page__bd page__bd_spacing">
@@ -22,7 +21,7 @@
       <view class="numwrap">
         <view class="title">流入</view>
         <view class="value">
-          <input type="digit" placeholder="number" value="{{det.increased}}" bindinput="bindinputIncreased" disabled="{{!edit}}" />
+          <input type="digit" placeholder="number" value="{{det.increased}}" bindblur="bindblurIncreased" bindfocus="bindfocusIncreased" bindinput="bindinputIncreased" disabled="{{!edit}}" />
         </view>
         <view class="title">元</view>
       </view>
@@ -33,7 +32,7 @@
       <view class="numwrap">
         <view class="title">流出</view>
         <view class="value">
-          <input type="digit" placeholder="number" value="{{det.reduce}}" bindinput="bindinputReduce" disabled="{{!edit}}" />
+          <input type="digit" placeholder="number" value="{{det.reduce}}" bindblur="bindblurReduce" bindfocus="bindfocusReduce" bindinput="bindinputReduce" disabled="{{!edit}}" />
         </view>
         <view class="title">元</view>
       </view>

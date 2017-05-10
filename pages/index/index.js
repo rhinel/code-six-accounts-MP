@@ -11,7 +11,7 @@ Page({
       avatarUrl: '../../assets/photo.jpg'
     },
     login: {
-      name: '',
+      name: 'xiong',
       pwd: ''
     },
     loginVD: {

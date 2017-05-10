@@ -4,6 +4,10 @@
   padding-top: 15px;
 }
 
+.record-det input {
+  text-align: right;
+}
+
 .record-det .page__bd {
   padding-bottom: 5px;
 }
