@@ -79,7 +79,7 @@ Page({
     ajax('/inner/types/minlist', {}, (res) => {
       that.setData({
         types: res.data.data,
-        'det.typeId': res.data.data[0] ? res.data.data[0].typeId : ''
+        'det.typeId': res.data.data[0] && !that.data.det.typeId ? res.data.data[0].typeId : that.data.det.typeId
       })
       resolve && resolve()
     }, (res) => {
