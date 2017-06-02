@@ -11,7 +11,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "code-six-accounts",
+    "navigationBarTitleText": "CodeSixAccounts",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
