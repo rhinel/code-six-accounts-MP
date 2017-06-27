@@ -77,3 +77,14 @@
   font-size: 11px;
   text-align: center;
 }
+
+.wx-tip {
+  font-size: 14px;
+  color:#888;
+  text-align: center;
+  line-height: 1;
+}
+
+.wx-tip .img {
+  vertical-align: middle;
+}

@@ -44,6 +44,10 @@
       <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
     </view>
   </view>
+  <view class="wx-tip" hidden="{{!editting}}">
+    <view>点击<image class="img" src="/assets/save.png"></image>保存</view>
+    <view>点击<image class="img" src="/assets/calc.png"></image>切换该账目是否计入总账</view>
+  </view>
   <view class="page__bd page__bd_spacing" hidden="{{editting}}" wx:for="{{list}}" wx:key="recordId">
     <view class="kind-list__item" data-recordId="{{item.recordId}}" bindtap="bindRecordDet">
       <view class="date">{{item.date}}</view>
